@@ -70,9 +70,14 @@ function getUserName() {
   return firebase.auth().currentUser.displayName;
 }
 
+// // Returns true if a user is signed-in.
+// function isUserSignedIn() {
+//   // TODO 6: Return true if a user is signed-in.
+// }
+
 // Returns true if a user is signed-in.
 function isUserSignedIn() {
-  // TODO 6: Return true if a user is signed-in.
+  return !!firebase.auth().currentUser;
 }
 
 // Saves a new message on the Firebase DB.
