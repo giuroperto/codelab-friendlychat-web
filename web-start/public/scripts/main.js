@@ -15,30 +15,59 @@
  */
 'use strict';
 
+// // Signs-in Friendly Chat.
+// function signIn() {
+//   alert('TODO: Implement Google Sign-In');
+//   // TODO 1: Sign in Firebase with credential from the Google user.
+// }
+
 // Signs-in Friendly Chat.
 function signIn() {
-  alert('TODO: Implement Google Sign-In');
-  // TODO 1: Sign in Firebase with credential from the Google user.
+  // Sign into Firebase using popup auth & Google as the identity provider.
+  var provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().signInWithPopup(provider);
 }
+
+// // Signs-out of Friendly Chat.
+// function signOut() {
+//   // TODO 2: Sign out of Firebase.
+// }
 
 // Signs-out of Friendly Chat.
 function signOut() {
-  // TODO 2: Sign out of Firebase.
+  // Sign out of Firebase.
+  firebase.auth().signOut();
 }
 
-// Initiate firebase auth.
+// // Initiate firebase auth.
+// function initFirebaseAuth() {
+//   // TODO 3: Initialize Firebase.
+// }
+
+// Initiate Firebase Auth.
 function initFirebaseAuth() {
-  // TODO 3: Initialize Firebase.
+  // Listen to auth state changes.
+  firebase.auth().onAuthStateChanged(authStateObserver);
 }
 
-// Returns the signed-in user's profile Pic URL.
+// // Returns the signed-in user's profile Pic URL.
+// function getProfilePicUrl() {
+//   // TODO 4: Return the user's profile pic URL.
+// }
+
+// Returns the signed-in user's profile pic URL.
 function getProfilePicUrl() {
-  // TODO 4: Return the user's profile pic URL.
+  return firebase.auth().currentUser.photoURL || '/images/profile_placeholder.png';
 }
+
+// // Returns the signed-in user's display name.
+// function getUserName() {
+//   // TODO 5: Return the user's display name.
+// }
 
 // Returns the signed-in user's display name.
 function getUserName() {
-  // TODO 5: Return the user's display name.
+  return firebase.auth().currentUser.displayName;
 }
 
 // Returns true if a user is signed-in.
